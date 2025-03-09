@@ -7,6 +7,7 @@ const app = express();
 const server = http.createServer(app);
 
 const clientUrl = process.env.CLIENT_URL || "http://localhost:5173";
+const port = process.env.PORT || 3000;
 
 const io = new Server(server, {
   cors: {
@@ -75,6 +76,6 @@ io.on("connection", (socket) => {
   });
 });
 
-module.exports = (req, res) => {
-  server.emit('request', req, res);
-};
+server.listen(port, () =>
+  console.log(`✅ Sunucu ${port} portunda çalışıyor...`)
+);
