@@ -6,8 +6,8 @@ const cors = require("cors");
 const app = express();
 const server = http.createServer(app);
 
-const clientUrl = process.env.CLIENT_URL || "http://localhost:5173";
-const port = process.env.PORT || 3000;
+const clientUrl = process.env.CLIENT_URL;
+const port = process.env.PORT;
 
 const io = new Server(server, {
   cors: {
